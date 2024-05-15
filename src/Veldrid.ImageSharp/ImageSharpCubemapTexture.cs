@@ -1,9 +1,8 @@
-﻿using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Advanced;
-using SixLabors.ImageSharp.PixelFormats;
-using System;
+﻿using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace Veldrid.ImageSharp
 {
@@ -61,7 +60,7 @@ namespace Veldrid.ImageSharp
                 Image.Load<Rgba32>(negativeXPath),
                 Image.Load<Rgba32>(positiveYPath),
                 Image.Load<Rgba32>(negativeYPath),
-                Image.Load<Rgba32>(positiveZPath), 
+                Image.Load<Rgba32>(positiveZPath),
                 Image.Load<Rgba32>(negativeZPath),
                 true) { }
 
@@ -189,7 +188,7 @@ namespace Veldrid.ImageSharp
                 }
                 if (!CubemapTextures[PositiveZArrayLayer][level].TryGetSinglePixelSpan(out Span<Rgba32> pixelSpanPosZ))
                 {
-                    throw new VeldridException("Unable to get positive z pixelspan."); 
+                    throw new VeldridException("Unable to get positive z pixelspan.");
                 }
                 if (!CubemapTextures[NegativeZArrayLayer][level].TryGetSinglePixelSpan(out Span<Rgba32> pixelSpanNegZ))
                 {
