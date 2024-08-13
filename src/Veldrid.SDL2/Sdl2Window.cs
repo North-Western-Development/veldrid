@@ -77,7 +77,7 @@ namespace Veldrid.Sdl2
             }
         }
 
-        public Sdl2Window(IntPtr windowHandle, bool threadedProcessing)
+        public Sdl2Window(IntPtr windowHandle, bool threadedProcessing, bool isSdl2Window = false)
         {
             _threadedProcessing = threadedProcessing;
             if (threadedProcessing)
@@ -97,10 +97,17 @@ namespace Veldrid.Sdl2
             }
             else
             {
-                _window = SDL_CreateWindowFrom(windowHandle);
+                if (!isSdl2Window)
+                {
+                    _window = SDL_CreateWindowFrom(windowHandle);
+                    WindowID = SDL_GetWindowID(_window);
+                    Sdl2WindowRegistry.RegisterWindow(this);
+                    PostWindowCreated(0);
+                    return;
+                }
+
+                _window = new SDL_Window(windowHandle);
                 WindowID = SDL_GetWindowID(_window);
-                Sdl2WindowRegistry.RegisterWindow(this);
-                PostWindowCreated(0);
             }
         }
 
