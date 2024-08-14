@@ -108,6 +108,8 @@ namespace Veldrid.Sdl2
 
                 _window = new SDL_Window(windowHandle);
                 WindowID = SDL_GetWindowID(_window);
+                Sdl2WindowRegistry.RegisterWindow(this);
+                PostWindowCreated(0);
             }
         }
 

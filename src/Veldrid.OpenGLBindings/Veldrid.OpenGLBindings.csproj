@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
@@ -9,5 +9,9 @@
     <Description>Raw OpenGL bindings for .NET. Used by Veldrid for OpenGL interop.</Description>
     <PackageTags>3D Graphics OpenGL Core Standard Game</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NativeLibraryLoader" Version="1.0.13" />
+  </ItemGroup>
 
 </Project>

@@ -9,6 +9,7 @@ using Veldrid.NeoDemo.Objects;
 using Veldrid.StartupUtilities;
 using Veldrid.Utilities;
 using Veldrid.Sdl2;
+using Vulkan;
 
 namespace Veldrid.NeoDemo
 {
@@ -240,7 +241,9 @@ namespace Veldrid.NeoDemo
             }
 
             DestroyAllObjects();
+            Console.WriteLine("CLEANUP");
             _gd.Dispose();
+            Console.WriteLine("CLEANUP2");
         }
 
         private void Update(float deltaSeconds)

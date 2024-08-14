@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IsPackable>false</IsPackable>
     <LangVersion>8.0</LangVersion>
@@ -17,6 +17,7 @@
     <ProjectReference Include="..\Veldrid.SDL2\Veldrid.SDL2.csproj" />
     <ProjectReference Include="..\Veldrid.StartupUtilities\Veldrid.StartupUtilities.csproj" />
     <ProjectReference Include="..\Veldrid.VirtualReality\Veldrid.VirtualReality.csproj" />
+    <PackageReference Include="NativeLibraryLoader" Version="1.0.13" />
     <PackageReference Include="Veldrid.SPIRV" Version="$(VeldridSpirvVersion)" />
     <PackageReference Include="AssimpNet" Version="4.1.0" />
 
