@@ -63,6 +63,8 @@ namespace Veldrid.NeoDemo
 #if DEBUG
             gdOptions.Debug = true;
 #endif
+
+            //Sdl2Native.SDL_SetHint("SDL_VIDEODRIVER", "wayland");
             VeldridStartup.CreateWindowAndGraphicsDevice(
                 windowCI,
                 gdOptions,
@@ -241,9 +243,8 @@ namespace Veldrid.NeoDemo
             }
 
             DestroyAllObjects();
-            Console.WriteLine("CLEANUP");
             _gd.Dispose();
-            Console.WriteLine("CLEANUP2");
+            _window.Dispose();
         }
 
         private void Update(float deltaSeconds)

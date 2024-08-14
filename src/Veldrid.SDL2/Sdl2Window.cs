@@ -13,7 +13,7 @@ using Veldrid;
 
 namespace Veldrid.Sdl2
 {
-    public unsafe class Sdl2Window
+    public unsafe class Sdl2Window : IDisposable
     {
         private readonly List<SDL_Event> _events = new List<SDL_Event>();
         private IntPtr _window;
@@ -319,7 +319,7 @@ namespace Veldrid.Sdl2
 
             Sdl2WindowRegistry.RemoveWindow(this);
             Closing?.Invoke();
-            SDL_DestroyWindow(_window);
+            //SDL_DestroyWindow(_window); // Destruction should be handled separately so that users can finish their cleanup of disposables, particularly in GL
             _exists = false;
             Closed?.Invoke();
 
@@ -1060,6 +1060,11 @@ namespace Veldrid.Sdl2
                     return SDL_CreateWindow(Title, X, Y, Width, Height, WindowFlags);
                 }
             }
+        }
+
+        public void Dispose()
+        {
+            SDL_DestroyWindow(_window);
         }
     }
 
