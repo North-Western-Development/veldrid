@@ -642,6 +642,7 @@ namespace Veldrid.NeoDemo
             DestroyAllObjects();
             bool syncToVBlank = _gd.SyncToVerticalBlank;
             _gd.Dispose();
+            _window.Dispose();
 
             if (_recreateWindow || forceRecreateWindow)
             {
