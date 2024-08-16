@@ -67,6 +67,11 @@ namespace Veldrid.ImageSharp
             return CreateTextureViaUpdate(gd, factory);
         }
 
+        public unsafe Texture CreateDeviceTexture(GraphicsDevice gd)
+        {
+            return CreateTextureViaUpdate(gd, gd.ResourceFactory);
+        }
+
         private unsafe Texture CreateTextureViaStaging(GraphicsDevice gd, ResourceFactory factory)
         {
             Texture staging = factory.CreateTexture(
